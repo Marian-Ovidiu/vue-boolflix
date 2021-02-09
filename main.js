@@ -9,8 +9,8 @@ var app = new Vue({
       const self = this;
         axios.get('https://api.themoviedb.org/3/search/movie?api_key=fe5018503d4af1e28f0fda5806e5e4c8&query=' + self.search).
           then(function(resp){
-            const films = resp.data.response;
-            this.film = films;
+            const films = resp.data.results;
+            self.film = films;
           })
       console.log(self.film);
     }
