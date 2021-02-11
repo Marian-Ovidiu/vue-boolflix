@@ -8,20 +8,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <title>BoolFlix</title>
   </head>
   <body>
-
-    <div class="" id="app">
-      <input type="text" v-model="search">
-      <button type="button" name="button" @click="cerca">Cerca</button>
-
-      <div class="container" v-for="item in film">
-        <div class="title">{{item.title}}</div>
-        <div class="original-title">{{item.original_title}}</div>
-        <div class="vote">{{item.original_language}}</div>
-        <div class="title">{{item.vote_average}}</div>
+    <div class="appContainer" id="app">
+      <!-- Header -->
+      <div class="header clearfix">
+        <div class="header-left">
+          <img src="img/logo.png" alt="">
+        </div>
+        <div class="header-right">
+          <input type="text" v-model="search" class="search" placeholder="Cerca qui">
+          <button type="button" name="button" @click="searchAll">Cerca</button>
+        </div>
       </div>
+      <!-- Fine Header -->
+      <!-- Container contenuti -->
+      <div class="containerContenuti">
+        <div class="film">
+          <div class="card" v-for="item in film">
+            <div class="title">{{item.title}}</div>
+            <div class="original-title">{{item.original_title}}</div>
+            <!-- chiedere per la if della copertina -->
+            <img class="background" if="item.backdrop_path !== 'null'" :src="'https://image.tmdb.org/t/p/w500' + item.backdrop_path" style="height: 150px;">
+            <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+            <img  class="languages" style="height: 45px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
+            <span v-else="">{{item.original_language}}</span>
+          </div>
+        </div>
+        <!-- <div class="serie">
+
+        </div> -->
+      </div>
+      <!-- <div class="container" v-for="item in serie">
+        <div class="title">{{item.name}}</div>
+        <div class="original-title">{{item.original_name}}</div>
+        <img :src="'https://image.tmdb.org/t/p/w500' + item.backdrop_path" style="height: 250px;">
+        <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
+        <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+        <img style="height: 45px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
+        <span v-else="">{{item.original_language}}</span>
+      </div> -->
     </div>
 
 

@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.appContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header{
+  width: 100%;
+  height: 80px;
+  background-color: black;
+}
+.header-left, .header-right {
+  width: 50%;
+  height: 80px;
+  float: left;
+}
+.header-right {
+  text-align: right;
+  border-left: 1px solid black;
+}
+.clearfix::after{
+  content:"";
+  display: table;
+  clear: both;
+}
+.search {
+  margin-top: 30px;
+  padding: 5px;
+  width: 200px;
+}
+button {
+  margin-right: 20px;
+  padding: 10px;
+  width: 100px;
+  border: none;
+  color: white;
+  background-color: #141414;
+}
+.containerContenuti {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #141414;
+}
+.film, .serie {
+  width: 100%;
+  overflow-x: auto;
+  height: calc((100vh - 80px) / 2);
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid black;
+}
+.card {
+  background-color: red;
+  margin: 5px;
+}
+.background {
+  height: 150px;
+}
+.title, .original-title, .languages ,span, .vote {
+  display: none;
+}
