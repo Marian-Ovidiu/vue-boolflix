@@ -53,11 +53,9 @@ button {
   padding-left: 20px;
 }
 .film, .serie {
-  border-top: 1px solid black;
   display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-around; */
-  overflow-y: auto;
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
 }
 .film {
   height: calc(100vh - 80px);
@@ -66,14 +64,15 @@ button {
   height: 100vh;
 }
 .card {
-  width: 235px;
-  height: 75%;
+  width: 20vw;
+  height: 75vh;
   background-size: cover;
   background-position: center;
   margin-left: 23px;
   margin-top: 20px;
   color: white;
   font-size: 15px;
+  flex: none;
 }
 .info {
   width: 100%;

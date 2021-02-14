@@ -28,7 +28,7 @@
       <div class="containerContenuti">
         <div class="film">
 
-          <div class="sottoTitolo">Film</div>
+          <!-- <div class="sottoTitolo">Film</div> -->
           <div class="card clearfix" v-for="item in film"
             :style="{ 'background-image' : 'url(\'' + generateImageLink(item) + '\')' }">
             <div class="info">
@@ -40,12 +40,12 @@
               <div class="lingue"><span class="grasseto languages">Lingua
               <img class="languages" style="height: 15px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
               <span v-else="">{{item.original_language}}</span></div>
-              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}             </div>
+              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}</div>
             </div>
           </div>
         </div>
         <div class="serie">
-          <div class="sottoTitolo">Serie TV</div>
+          <!-- <div class="sottoTitolo">Serie TV</div> -->
           <div class="card clearfix" v-for="item in serie"
           :style="{ 'background-image' : 'url(\'' + generateImageLink(item) + '\')' }">
             <div class="info">
@@ -57,8 +57,7 @@
               <div class="lingue"><span class="grasseto languages">Lingua
               <img class="languages" style="height: 15px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
               <span v-else="">{{item.original_language}}</span></div>
-              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}             </div>
-              
+              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}</div>
             </div>
           </div>
         </div>
