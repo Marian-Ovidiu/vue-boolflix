@@ -35,8 +35,17 @@ var app = new Vue({
     },
     getVote: function(vote){
       return parseInt(vote / 2);
+    },
+    generateImageLink: function(element) {
+      const uri = 'https://image.tmdb.org/t/p/';
+      let size = 'w500';
+      let imageLink = uri + size + element.poster_path;
+      if(element.poster_path === null){
+        imageLink = 'https://www.altavod.com/assets/images/poster-placeholder.png';
+      }
+      return imageLink;
     }
   }
 })
 
-Vue.config.devtools = true
+Vue.config.devtools = true;

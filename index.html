@@ -27,34 +27,43 @@
       <!-- Container contenuti -->
       <div class="containerContenuti">
         <div class="film">
-          <div class="card" v-for="item in film">
-            <div class="title">{{item.title}}</div>
-            <div class="original-title">{{item.original_title}}</div>
-            <!-- chiedere per la if della copertina -->
-            <img class="background" if="item.backdrop_path !== 'null'" :src="'https://image.tmdb.org/t/p/w500' + item.backdrop_path" style="height: 150px;">
-            <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
-            <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
-            <img  class="languages" style="height: 45px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
-            <span v-else="">{{item.original_language}}</span>
+
+          <div class="sottoTitolo">Film</div>
+          <div class="card clearfix" v-for="item in film"
+            :style="{ 'background-image' : 'url(\'' + generateImageLink(item) + '\')' }">
+            <div class="info">
+              <div class="title"><span class="grasseto">Titolo:</span> {{item.title}}</div>
+              <div class="original-title"><span class="grasseto">Titiolo Originale</span> {{item.original_title}}</div>
+              <span class="grasseto">Voto</span>
+              <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
+              <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+              <div class="lingue"><span class="grasseto languages">Lingua
+              <img class="languages" style="height: 15px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
+              <span v-else="">{{item.original_language}}</span></div>
+              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}             </div>
+            </div>
           </div>
         </div>
-        <!-- <div class="serie">
-
-        </div> -->
+        <div class="serie">
+          <div class="sottoTitolo">Serie TV</div>
+          <div class="card clearfix" v-for="item in serie"
+          :style="{ 'background-image' : 'url(\'' + generateImageLink(item) + '\')' }">
+            <div class="info">
+              <div class="title"><span class="grasseto">Titolo:</span>{{item.name}}</div>
+              <div class="original-title"><span class="grasseto">Titolo originale:</span>{{item.original_name}}</div>
+              <span class="grasseto">Voto</span>
+              <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
+              <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+              <div class="lingue"><span class="grasseto languages">Lingua
+              <img class="languages" style="height: 15px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
+              <span v-else="">{{item.original_language}}</span></div>
+              <div class="overView"><span class="grasseto">Overview: </span>{{item.overview}}             </div>
+              
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <div class="container" v-for="item in serie">
-        <div class="title">{{item.name}}</div>
-        <div class="original-title">{{item.original_name}}</div>
-        <img :src="'https://image.tmdb.org/t/p/w500' + item.backdrop_path" style="height: 250px;">
-        <div class="vote" v-for="item in getVote(item.vote_average)"><i class="fa fa-star" aria-hidden="true"></i></div>
-        <div class="vote" v-for="item in (5 - getVote(item.vote_average))"><i class="fa fa-star-o" aria-hidden="true"></i></div>
-        <img style="height: 45px;" v-if="languages.includes(item.original_language)" :src="'img/' + item.original_language + '.png'">
-        <span v-else="">{{item.original_language}}</span>
-      </div> -->
     </div>
-
-
-
     <script src="main.js" type="text/javascript"></script>
   </body>
 </html>

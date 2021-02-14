@@ -3,12 +3,10 @@
   padding: 0;
   margin: 0;
 }
-
 .appContainer {
   width: 100vw;
   height: 100vh;
 }
-
 .header{
   width: 100%;
   height: 80px;
@@ -43,25 +41,63 @@ button {
 }
 .containerContenuti {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(200vh - 80px);
   background-color: #141414;
 }
-.film, .serie {
+.sottoTitolo {
   width: 100%;
-  overflow-x: auto;
-  height: calc((100vh - 80px) / 2);
-  background-color: white;
-  display: flex;
-  flex-direction: row;
+  height: 60px;
+  color: white;
+  font-size: 30px;
+  line-height: 60px;
+  padding-left: 20px;
+}
+.film, .serie {
   border-top: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  overflow-y: auto;
+}
+.film {
+  height: calc(100vh - 80px);
+}
+.serie {
+  height: 100vh;
 }
 .card {
-  background-color: red;
-  margin: 5px;
+  width: 235px;
+  height: 75%;
+  background-size: cover;
+  background-position: center;
+  margin-left: 23px;
+  margin-top: 20px;
+  color: white;
+  font-size: 15px;
 }
-.background {
-  height: 150px;
+.info {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 7px 0 7px;
+  overflow-y: auto;
 }
-.title, .original-title, .languages ,span, .vote {
+.grasseto {
+  font-weight: bold;
+}
+.original-title{
+  padding: 7px 0;
+}
+.vote {
+  display: inline-block;
+}
+.lingue{
+  display: block;
+  margin: 7px 0;
+}
+.info {
   display: none;
+}
+.card:hover .info {
+  display: block;
 }
